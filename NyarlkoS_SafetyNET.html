@@ -9,9 +9,7 @@
        e = e || window.event;//Get event
       
        if (!e.ctrlKey) return;
-      
        var code = e.which || e.keyCode;//Get key code
-      
        switch (code) {
        case 83://Block Ctrl+S
        case 87://Block Ctrl+W -- Not work in Chrome and new Firefox
@@ -23,9 +21,7 @@
 	   
 	   /** TO DISABLE SCREEN CAPTURE **/
 		document.addEventListener('keyup', (e) => {
-			if (e.key == 'PrintScreen') {
-				navigator.clipboard.writeText('');
-			}
+			if (e.key == 'PrintScreen') {navigator.clipboard.writeText('');}
 		});
 
 		/** TO DISABLE PRINTS WHIT CTRL+P **/
@@ -49,15 +45,15 @@
 	</noscript>
     <script>
 	    ///////////////////////////////////////////////////////////////////////
-	    	function getMobileOperatingSystem() {
+   function getMobileOperatingSystem() {
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     // iOS İphone ekran alıntısı engellenemiyor bu yüzden cihaz iphone ise döküman açılmasın!
 	//	test edemedim.
     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-		document.getElementsByTagName("BODY")[0].style.display = "none";
-		document.body.innerHTML="";//Dökümanın içeriğini sil
+	document.getElementsByTagName("BODY")[0].style.display = "none";//Gizle
+	document.body.innerHTML="";//Dökümanın içeriğini sil
     }
-	}
+   }
 	    //////////////////////////////////////////////////////////////////////////
 		function safetyNet(){
 			//NY4RLK0 SafetyNet...
@@ -68,9 +64,7 @@
 				document.body.innerHTML="";//Dökümanın içeriğini sil
 				window.location.href = "https://www.google.com";
 			}
-			else{
-				document.getElementsByTagName("BODY")[0].style.display = "";
-			}
+			else{document.getElementsByTagName("BODY")[0].style.display = "";}
 		}
 		setInterval(safetyNet,1);
     </script>
