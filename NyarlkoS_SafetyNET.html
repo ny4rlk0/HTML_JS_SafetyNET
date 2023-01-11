@@ -13,6 +13,18 @@
        switch (code) {
        case 83://Block Ctrl+S
        case 87://Block Ctrl+W -- Not work in Chrome and new Firefox
+       case 112://FN-1 \ FN12
+       case 113:
+       case 114:
+       case 115:
+       case 116:
+       case 117:
+       case 118:
+       case 119:
+       case 120:
+       case 121:
+       case 122:
+       case 123://FN-12
        e.preventDefault();
        e.stopPropagation();
        break;
