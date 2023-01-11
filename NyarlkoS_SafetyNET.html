@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<body onmousedown="return false" onselectstart="return false"><!--Kopyalama ve sağ tıklamayı yasaklayalım-->
+    <script>
+	function getMobileOperatingSystem() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // iOS İphone ekran alıntısı engellenemiyor bu yüzden cihaz iphone ise döküman açılmasın!
+	//	test edemedim.
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+		document.getElementsByTagName("BODY")[0].style.display = "none";
+		document.body.innerHTML="";//Dökümanın içeriğini sil
+    }
+	}
+
+		document.getElementsByTagName("BODY")[0].style.display = "none";//Döküman hemen gözükmesin
+		document.addEventListener('contextmenu', event => event.preventDefault()); //Sağ click devre dışı bırak.
+	  //Prevent Ctrl+S (and Ctrl+W for old browsers and Edge)
+       document.onkeydown = function (e) {
+       e = e || window.event;//Get event
+      
+       if (!e.ctrlKey) return;
+      
+       var code = e.which || e.keyCode;//Get key code
+      
+       switch (code) {
+       case 83://Block Ctrl+S
+       case 87://Block Ctrl+W -- Not work in Chrome and new Firefox
+       e.preventDefault();
+       e.stopPropagation();
+       break;
+       }
+       };
+	   
+	   /** TO DISABLE SCREEN CAPTURE **/
+		document.addEventListener('keyup', (e) => {
+			if (e.key == 'PrintScreen') {
+				navigator.clipboard.writeText('');
+			}
+		});
+
+		/** TO DISABLE PRINTS WHIT CTRL+P **/
+		document.addEventListener('keydown', (e) => {
+			if (e.ctrlKey && e.key == 'p') {
+				e.cancelBubble = true;
+				e.preventDefault();
+				e.stopImmediatePropagation();
+			}
+		});
+		getWindow().setFlags(LayoutParams.FLAG_SECURE, LayoutParams.FLAG_SECURE);//Android ekran alıntısını engelle
+		
+	</script>
+	<pre>
+		İçerik İçerik İçerik
+		İçerik İçerik İçerik
+		İçerik İçerik İçerik
+	</pre>
+	<noscript><!--JavaScript Kapalı dökümanın güvenliği sağlanamıyor. İçeriği sil...-->
+	document.body.innerHTML="";//Dökümanın içeriğini sil
+	</noscript>
+    <script>
+		function safetyNet(){
+			//NY4RLK0 SafetyNet...
+			var bugun = new Date()
+			var hedefTarih = new Date("January 05, 2023 15:00:00");
+			if (bugun>hedefTarih){//Bu gün belirli bir zamanı geçmişse
+				document.getElementsByTagName("BODY")[0].style.display = "none";
+				document.body.innerHTML="";//Dökümanın içeriğini sil
+				window.location.href = "https://www.google.com";
+			}
+			else{
+				document.getElementsByTagName("BODY")[0].style.display = "";
+			}
+		}
+		setInterval(safetyNet,1);
+    </script>
+</body>
+</html>
