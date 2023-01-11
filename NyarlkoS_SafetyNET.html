@@ -2,11 +2,9 @@
 <html>
 <body onmousedown="return false" onselectstart="return false"><!--Kopyalama ve sağ tıklamayı yasaklayalım-->
     <script>
-
-
-		document.getElementsByTagName("BODY")[0].style.display = "none";//Döküman hemen gözükmesin
-		document.addEventListener('contextmenu', event => event.preventDefault()); //Sağ click devre dışı bırak.
-	  //Prevent Ctrl+S (and Ctrl+W for old browsers and Edge)
+	document.getElementsByTagName("BODY")[0].style.display = "none";//Döküman hemen gözükmesin
+	document.addEventListener('contextmenu', event => event.preventDefault()); //Sağ click devre dışı bırak.
+	//Prevent Ctrl+S (and Ctrl+W for old browsers and Edge)
        document.onkeydown = function (e) {
        e = e || window.event;//Get event
       
